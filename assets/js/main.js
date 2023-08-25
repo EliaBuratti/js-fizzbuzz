@@ -15,29 +15,44 @@ BONUS 2:
 Applica stili differenti agli elementi aggiunti al DOM nel BONUS 1, a seconda che il valore inserito sia un numero, un fizz, un buzz o un fizzbuzz. Se sei a corto di idee per lo stile, potresti prendere spunto dallo screenshot fornito in consegna.
  */
 
-//stapare in console i numeri da 1 a 100 
-/* per i multipli di 3 stampi “Fizz” al posto del numero
-e per i multipli di 5 stampi “Buzz”.
-Per i numeri che sono sia multipli di 3 che di 5 stampi “FizzBuzz”. */
+
+
 
 for (let i = 1; i <= 100; i++) {
 
-    if (i % 15 === 0 ) {
-        const FizzBuzz = 'FizzBuzz';
+    //creo delle costanti da poter richiamare per ogni if/else
+    const square = document.getElementById('cards');
+
+    const cardEl = document.createElement('div');
+
+    if (i % 15 === 0 ) { //identifico i numeri divisibili per 15 e poi inserisco del markup
+        square.append(cardEl);
+        cardEl.classList.add('square', 'one');
+        cardEl.append('FizzBuzz');
         console.log('FizzBuzz');
-        i++;
+        
 
-    } else if (i % 3 === 0) {
-        const Fizz = 'Fizz';
-        console.log('Fizz');
-        i++;
-
-    } else if (i % 5 === 0) {
-        const Buzz = 'Buzz';
+    } else if (i % 5 === 0) { //identifico i numeri divisibili per 5 e poi inserisco del markup
+        square.append(cardEl);
+        cardEl.classList.add('square', 'two');
+        cardEl.append('Buzz');
         console.log('Buzz');
-        i++;
-    }
 
-    console.log(i);
+        
+
+    } else if (i % 3 === 0) { //identifico i numeri divisibili per 3 e poi inserisco del markup
+        square.append(cardEl);
+        cardEl.classList.add('square', 'three');
+        cardEl.append('Fizz');
+        console.log('Fizz');
+
+        
+
+    } else { //altrimenti genero una card con il numero
+        square.append(cardEl);
+        cardEl.classList.add('square');
+        cardEl.append(i);
+        console.log(i);
+    }
 
 }
